@@ -23,6 +23,10 @@ set statusline=[%n]\ %<%f%h%m
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
+
+colorscheme gruvbox
+set background=dark
 
 nmap <C-P> :FZF<CR>
