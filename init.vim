@@ -16,6 +16,9 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
+set laststatus=2
+set statusline=[%n]\ %<%f%h%m
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
