@@ -26,7 +26,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
+" gruvbox configs
 colorscheme gruvbox
 set background=dark
 
+" Ctrl+P for activating FZF
 nmap <C-P> :FZF<CR>
+
+" Ctrl + [hjkl] for navigating between splits
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
