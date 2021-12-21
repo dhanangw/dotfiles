@@ -39,3 +39,8 @@ nmap <silent> <c-j> :wincmd j<CR>
 nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
+" Move between buffers
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>  
+
