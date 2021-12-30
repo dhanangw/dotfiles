@@ -28,6 +28,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 " gruvbox configs
@@ -48,12 +49,12 @@ map bn :bn<cr>
 map bp :bp<cr>
 map bd :bd<cr>  
 
-" pyright
+" Activated LSPs
 lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
 
-" LSP Key binding
+" nvim-lspconfig key binding
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
@@ -98,3 +99,9 @@ for _, lsp in ipairs(servers) do
   }
 end
 EOF
+
+
+" netrw configs
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
