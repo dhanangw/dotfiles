@@ -34,8 +34,11 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
-" Ctrl+P for activating FZF
+" Ctrl+p for activating FZF
 nmap <C-P> :FZF<CR>
+
+" Ctrl+f for activating ripgrep
+nmap <C-F> :Rg<CR>
 
 " Ctrl + [hjkl] for navigating between splits
 nmap <silent> <c-k> :wincmd k<CR>
