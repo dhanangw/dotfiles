@@ -35,20 +35,22 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
-" FZF
-nmap <leader>p :FZF<CR>
-nmap <leader>f :Rg<CR>
+" Ctrl+p for activating FZF
+nmap <C-P> :FZF<CR>
 
-" navigating splits
-nmap <silent> <leader>k :wincmd k<CR>
-nmap <silent> <leader>j :wincmd j<CR>
-nmap <silent> <leader>h :wincmd h<CR>
-nmap <silent> <leader>l :wincmd l<CR>
+" Ctrl+f for activating ripgrep
+nmap <C-F> :Rg<CR>
 
-" navigating buffers
-map <leader>bn :bn<cr>
-map <leader>bp :bp<cr>
-map <leader>bd :bd<cr>  
+" Ctrl + [hjkl] for navigating between splits
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-h> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
+" Move between buffers
+map bn :bn<cr>
+map bp :bp<cr>
+map bd :bd<cr>  
 
 " Activated LSPs
 lua << EOF
