@@ -35,10 +35,14 @@ call plug#end()
 colorscheme gruvbox
 set background=dark
 
-" Ctrl+p for activating FZF
-nmap <C-P> :FZF<CR>
+" fzf
+"" Rg: Preview window on top + opens in fullscreen
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   "rg --column --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('up', 'ctrl-/'), 1)
 
-" Ctrl+f for activating ripgrep
+nmap <C-P> :FZF<CR>
 nmap <C-F> :Rg<CR>
 
 " Ctrl + [hjkl] for navigating between splits
@@ -48,9 +52,9 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " Move between buffers
-map bn :bn<cr>
-map bp :bp<cr>
-map bd :bd<cr>  
+nmap <c-e> :bn<cr>
+nmap <c-q> :bp<cr>
+nmap <c-w> :bd<cr>
 
 " Activated LSPs
 lua << EOF
