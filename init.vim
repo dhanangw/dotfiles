@@ -29,6 +29,7 @@ Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
+Plug 'scalameta/nvim-metals'
 call plug#end()
 
 " gruvbox configs
