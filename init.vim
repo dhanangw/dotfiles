@@ -30,6 +30,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
 Plug 'scalameta/nvim-metals'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " gruvbox configs
@@ -107,7 +108,6 @@ for _, lsp in ipairs(servers) do
   }
 end
 EOF
-
 
 " netrw configs
 let g:netrw_liststyle = 3
