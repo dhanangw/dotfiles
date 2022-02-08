@@ -61,6 +61,7 @@ nmap <c-w> :bd<cr>
 " Activated LSPs
 lua << EOF
 require'lspconfig'.pyright.setup{}
+require'lspconfig'.gopls.setup{}
 EOF
 
 " nvim-lspconfig key binding
@@ -98,7 +99,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', }
+local servers = { 'pyright', 'gopls', }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
