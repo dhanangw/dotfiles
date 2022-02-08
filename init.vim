@@ -31,6 +31,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
 Plug 'scalameta/nvim-metals'
 Plug 'jiangmiao/auto-pairs'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " gruvbox configs
