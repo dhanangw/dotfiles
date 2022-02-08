@@ -31,7 +31,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
 Plug 'scalameta/nvim-metals'
 Plug 'jiangmiao/auto-pairs'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 " gruvbox configs
@@ -42,7 +41,7 @@ set background=dark
 "" Rg: Preview window on top + opens in fullscreen
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   "rg --column --line-number --no-heading --color=always --smart-case --files-with-matches ".shellescape(<q-args>), 1,
+  \   "rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1,
   \   fzf#vim#with_preview('up', 'ctrl-/'), 1)
 
 nmap <C-P> :FZF<CR>
