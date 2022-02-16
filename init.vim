@@ -54,9 +54,31 @@ nmap <silent> <c-h> :wincmd h<CR>
 nmap <silent> <c-l> :wincmd l<CR>
 
 " Move between buffers
-nmap <c-e> :bn<cr>
-nmap <c-q> :bp<cr>
-nmap <c-w> :bd<cr>
+function! SwitchToNextBuffer(incr)
+  let help_buffer = (&filetype == 'help')
+  let current = bufnr("%")
+  let last = bufnr("$")
+  let new = current + a:incr
+  while 1
+    if new != 0 && bufexists(new) && ((getbufvar(new, "&filetype") == 'help') == help_buffer)
+      execute ":buffer ".new
+      break
+    else
+      let new = new + a:incr
+      if new < 1
+        let new = last
+      elseif new > last
+        let new = 1
+      endif
+      if new == current
+        break
+      endif
+    endif
+  endwhile
+endfunction
+nnoremap <silent> <Tab> :call SwitchToNextBuffer(1)<CR>
+nnoremap <silent> <S-Tab> :call SwitchToNextBuffer(-1)<CR>
+nnoremap <silent> <BS> :bw<CR>
 
 " Activated LSPs
 lua << EOF
@@ -111,7 +133,7 @@ end
 EOF
 
 " netrw configs
+let g:netrw_fastbrowse = 0
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-let g:netrw_fastbrowse = 0
 
