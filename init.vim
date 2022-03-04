@@ -31,6 +31,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
 Plug 'scalameta/nvim-metals'
 Plug 'jiangmiao/auto-pairs'
+Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 " gruvbox configs
@@ -80,7 +81,7 @@ nnoremap <silent> <Tab> :call SwitchToNextBuffer(1)<CR>
 nnoremap <silent> <S-Tab> :call SwitchToNextBuffer(-1)<CR>
 nnoremap <silent> <BS> :bw<CR>
 
-" Activated LSPs
+" Activated nvim-lspconfig's LSPs
 lua << EOF
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.gopls.setup{}
@@ -137,3 +138,8 @@ let g:netrw_fastbrowse = 0
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 
+" nvim-metals
+augroup lsp
+  au!
+  au FileType java,scala,sbt lua require("metals").initialize_or_attach({})
+augroup end
