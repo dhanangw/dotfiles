@@ -29,9 +29,7 @@ Plug 'morhetz/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-vinegar'
 Plug 'sheerun/vim-polyglot'
-Plug 'scalameta/nvim-metals'
 Plug 'jiangmiao/auto-pairs'
-Plug 'nvim-lua/plenary.nvim'
 call plug#end()
 
 " gruvbox configs
@@ -85,6 +83,7 @@ nnoremap <silent> <BS> :bw<CR>
 lua << EOF
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.gopls.setup{}
+require'lspconfig'.metals.setup{}
 EOF
 
 " nvim-lspconfig key binding
@@ -122,7 +121,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'gopls', }
+local servers = { 'pyright', 'gopls', 'metals', }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -138,8 +137,3 @@ let g:netrw_fastbrowse = 0
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 
-" nvim-metals
-augroup lsp
-  au!
-  au FileType java,scala,sbt lua require("metals").initialize_or_attach({})
-augroup end
