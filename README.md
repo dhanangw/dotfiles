@@ -7,7 +7,7 @@ Clone this repository.
 4. Install Pyright
 5. Install [gopls](https://github.com/golang/tools/tree/master/gopls#installation)
 6. Install [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
-7. Install [Metals](https://get-coursier.io/docs/cli-installation) via Coursier(https://get-coursier.io/docs/cli-installation)
+7. Install [Metals](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#metals) via Coursier(https://get-coursier.io/docs/cli-installation)
 8. Create symlink to replace Neovim's default init.vim.
 
 		rm ~/.config/nvim/init.vim
